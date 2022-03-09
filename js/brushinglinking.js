@@ -15,7 +15,7 @@ const svg1 = d3.select("#vis-holder")
 let brush1; 
 let myCircles1; 
 
-//TODO: append svg object to the body of the page to house Scatterplot2 (call it svg2)
+// append svg object to the body of the page to house Scatterplot2 (call it svg2)
 const svg2 = d3.select("#vis-holder")
                 .append("svg")
                 .attr("width", width - margin.left - margin.right)
@@ -23,11 +23,11 @@ const svg2 = d3.select("#vis-holder")
                 .attr("viewBox", [0, 0, width, height])
                 .attr("class", "container");
 
-//TODO: Initialize brush for Scatterplot2 and points. We will need these to be global.
+// Initialize brush for Scatterplot2 and points. We will need these to be global.
 let brush2;
 let myCircles2;
 
-//TODO: append svg object to the body of the page to house bar chart 
+// append svg object to the body of the page to house bar chart 
 const svg3 = d3.select("#vis-holder")
                 .append("svg")
                 .attr("width", width - margin.left - margin.right)
@@ -35,7 +35,7 @@ const svg3 = d3.select("#vis-holder")
                 .attr("viewBox", [0, 0, width, height])
                 .attr("class", "container");
 
-//TODO: Initialize bars. We will need these to be global. 
+// Initialize bars. We will need these to be global. 
 let myBars;
 
 
@@ -79,7 +79,7 @@ d3.csv("data/iris.csv").then((data) => {
                       .text(xKey1)
       );
 
-    // Finx max y 
+    // Find max y 
     let maxY1 = d3.max(data, (d) => { return d[yKey1]; });
 
     // Create Y scale
@@ -112,10 +112,10 @@ d3.csv("data/iris.csv").then((data) => {
                               .style("fill", (d) => color(d.Species))
                               .style("opacity", 0.5);
 
-    //TODO: Define a brush (call it brush1)
+    // Define brush1
     brush1 = d3.brush();
 
-    //TODO: Add brush1 to svg1
+    // Add brush1 to svg1
     svg1.call(brush1
           .extent( [ [0,0],[width,height] ] )
           .on("start brush", updateChart1)
@@ -123,7 +123,7 @@ d3.csv("data/iris.csv").then((data) => {
     
   }
 
-  //TODO: Scatterplot 2 (show Sepal width on x-axis and Petal width on y-axis)
+  // Scatterplot 2 (show Sepal width on x-axis and Petal width on y-axis)
   {
     let xKey2 = "Sepal_Width";
     let yKey2 = "Petal_Width";
@@ -149,7 +149,7 @@ d3.csv("data/iris.csv").then((data) => {
                       .text(xKey2)
       );
 
-    // Finx max y 
+    // Find max y 
     let maxY2 = d3.max(data, (d) => { return d[yKey2]; });
 
     // Create Y scale
@@ -183,7 +183,7 @@ d3.csv("data/iris.csv").then((data) => {
                               .style("opacity", 0.5);
   }
 
-  //TODO: Barchart with counts of different species
+  // Barchart with counts of different species
   {
     let xKey3 = "species";
     let yKey3 = "count";
@@ -283,7 +283,7 @@ d3.csv("data/iris.csv").then((data) => {
 
   }
 
-    //Finds dots within the brushed region
+    // Finds dots within the brushed region
     function isBrushed(brush_coords, cx, cy) {
       if (brush_coords === null) return;
 
