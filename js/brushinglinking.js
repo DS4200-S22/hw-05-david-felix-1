@@ -15,6 +15,7 @@ const svg1 = d3.select("#vis-holder")
 let brush1; 
 let myCircles1; 
 
+
 // append svg object to the body of the page to house Scatterplot2 (call it svg2)
 const svg2 = d3.select("#vis-holder")
                 .append("svg")
@@ -111,7 +112,6 @@ d3.csv("data/iris.csv").then((data) => {
                               .attr("r", 8)
                               .style("fill", (d) => color(d.Species))
                               .style("opacity", 0.5);
-
     // Define brush1
     brush1 = d3.brush()
       .extent( [ [0,0],[width,height] ] )
