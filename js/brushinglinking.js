@@ -14,13 +14,26 @@ const svg1 = d3.select("#vis-holder")
 let brush1; 
 let myCircles1; 
 
-//TODO: append svg object to the body of the page to house Scatterplot2 (call it svg2)
+// Append svg object to the body of the page to house Scatterplot2 (call it svg2)
+const svg2 = d3.select("#vis-holder")
+                .append("svg")
+                .attr("width", width - margin.left - margin.right)
+                .attr("height", height - margin.top - margin.bottom)
+                .attr("viewBox", [0, 0, width, height]);
 
-//TODO: Initialize brush for Scatterplot2 and points. We will need these to be global.
+// Initialize brush for Scatterplot2 and points. We will need these to be global.
+let brush2;
+let myCircles2;
 
-//TODO: append svg object to the body of the page to house bar chart 
+// Append svg object to the body of the page to house bar chart 
+const svg3 = d3.select("#vis-holder")
+                .append("svg")
+                .attr("width", width - margin.left - margin.right)
+                .attr("height", height - margin.top - margin.bottom)
+                .attr("viewBox", [0, 0, width, height]);
 
-//TODO: Initialize bars. We will need these to be global. 
+// Initialize bars. We will need these to be global. 
+let myBars1
 
 
 // Define color scale
@@ -97,6 +110,11 @@ d3.csv("data/iris.csv").then((data) => {
                               .style("opacity", 0.5);
 
     //TODO: Define a brush (call it brush1)
+    const brush1 = d3.select("#vis-holder")
+                      .call( d3.brush()
+                        .extent([ [0,0], [600,600] ])
+                        );
+
 
     //TODO: Add brush1 to svg1
     
