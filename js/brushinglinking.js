@@ -103,7 +103,6 @@ d3.csv("data/iris.csv").then((data) => {
       );
 
     // Add points
-<<<<<<< HEAD
     myCircles1 = svg1.selectAll("circle")
                         .data(data)
                         .enter()
@@ -115,18 +114,6 @@ d3.csv("data/iris.csv").then((data) => {
                           .style("fill", (d) => color(d.Species))
                           .style("opacity", 0.5);
 
-=======
-    const myCircles1 = svg1.selectAll("circle")
-                            .data(data)
-                            .enter()
-                              .append("circle")
-                              .attr("id", (d) => d.id)
-                              .attr("cx", (d) => x1(d[xKey1]))
-                              .attr("cy", (d) => y1(d[yKey1]))
-                              .attr("r", 8)
-                              .style("fill", (d) => color(d.Species))
-                              .style("opacity", 0.5);
->>>>>>> 9af91755d1df64d649587d0398e79968ce0c9b63
     // Define brush1
     brush1 = d3.brush()
                 .extent( [ [0,0],[width,height] ] )
