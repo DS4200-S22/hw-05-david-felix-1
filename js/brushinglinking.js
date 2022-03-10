@@ -117,8 +117,8 @@ d3.csv("data/iris.csv").then((data) => {
     // Define brush1
     brush1 = d3.brush()
                 .extent( [ [0,0],[width,height] ] )
-                .on("start.clear1", clear) 
-                .on("brush.1", updateChart1);
+                .on("start.clear1", clear) // clear all brushes
+                .on("brush.1", updateChart1); // add function to brush
 
     // Add brush1 to svg1
     svg1.call(brush1);
@@ -186,8 +186,8 @@ d3.csv("data/iris.csv").then((data) => {
     // Define brush2
     brush2 = d3.brush()
                 .extent( [ [0,0],[width,height] ] )
-                .on("start.clear2", clear)
-                .on("brush.2", updateChart2);
+                .on("start.clear2", clear) // clear all brushes
+                .on("brush.2", updateChart2); // add function to brush
 
     // Add brush2 to svg2
     svg2.call(brush2);
@@ -199,6 +199,7 @@ d3.csv("data/iris.csv").then((data) => {
     xKey3 = "Species";
     yKey3 = "count";
 
+    // hardcoded data for bar chart
     const data2 = [
       {Species: "setosa", count: 50},
       {Species: "versicolor", count: 50},
@@ -291,7 +292,7 @@ d3.csv("data/iris.csv").then((data) => {
     // Give bold outline to all points within the brush region in Scatterplot2 & collected names of brushed species
     myCircles2.classed("selected", function(d){ 
                                     if (isBrushed(extent2, x2(d[xKey2]), y2(d[yKey2]))) {
-                                      nameSpecies.add(d[xKey3]);
+                                      nameSpecies.add(d[xKey3]); // add name of species to set
                                       return true;
                                     }
                                   });
